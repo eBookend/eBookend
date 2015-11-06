@@ -52,7 +52,7 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 }
 
 #signup-header { 
-	background: url(img/hd-bg.png); 
+	background: url(popup/img/hd-bg.png); 
 	padding: 18px 18px 14px 18px; 
 	border-bottom: 1px solid #CCC; 
 	border-top-left-radius: 5px; 
@@ -150,7 +150,7 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 	border-bottom: 1px solid #E7E6E6; 
 }
 #signup .txt-fld input.good_input { 
-	background: #DEF5E1 url(img/good.png) 236px center no-repeat; 
+	background: #DEF5E1 url(popup/img/good.png) 236px center no-repeat; 
 }
 
 #signup .txt-fld input.error_input { 
@@ -181,7 +181,7 @@ button {
 	display: block; 
 	width: 14px; 
 	height: 14px; 
-	background: url(img/modal_close.png); 
+	background: url(popup/img/modal_close.png); 
 	z-index: 2; 
 }
 #addButton {
