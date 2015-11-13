@@ -231,3 +231,23 @@ button {
 	margin-left: auto;
 	margin-right: auto;
 }
+span{
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+}
+.red{
+	background: url(images/red.png);
+	background-repeat: no-repeat;
+    background-size: contain;
+}
+.yellow{
+	background: url(images/yellow.png);
+	background-repeat: no-repeat;
+    background-size: contain;
+    }
+.green{
+	background: url(images/green.png);
+	background-repeat: no-repeat;
+    background-size: contain;
+}
