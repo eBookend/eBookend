@@ -6,8 +6,8 @@ var bBookend;
 $(function () {  
 	$("#create").click(
 	function() {	
-		sName = document.getElementById("bName").value;
-		sDescrip = document.getElementById("bDescrip").value;
+		bName = document.getElementById("bName").value;
+		bDescrip = document.getElementById("bDescrip").value;
 		bColor = $('input[name="bColort"]:checked').val();
 		bBookend = document.getElementById("bBookend").value;
 		
