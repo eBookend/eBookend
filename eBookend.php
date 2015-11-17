@@ -60,7 +60,7 @@
 		<a id="go" rel="eBookend" name="signup" href="#signup"><img style="margin-left:5em; margin-bottom:2em" id="addButton" src="images/newbook.png" /></a>
 	</div>
 	<div>
-		<a id="go" rel="eBookend" name="signup-bookend" href="#signup"><img style="margin-left:5em; margin-bottom:2em" id="addButton" src="images/newbookend.png" /></a>
+		<a id="go" rel="eBookend" name="signup-bookend" href="#signup-bookend"><img style="margin-left:5em; margin-bottom:2em" id="addButton" src="images/newbookend.png" /></a>
 	</div>
 	
 	<div id="shelf">
