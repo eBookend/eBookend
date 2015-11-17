@@ -57,7 +57,10 @@
 <body>
 	<h1>eBookend</h1>
 	<div>
-		<a id="go" rel="eBookend" name="signup" href="#signup"><img style="margin-left:5em; margin-bottom:2em" id="addButton" src="http://findicons.com/files/icons/2799/flat_icons/128/book_add.png" /></a>
+		<a id="go" rel="eBookend" name="signup" href="#signup"><img style="margin-left:5em; margin-bottom:2em" id="addButton" src="images/newbook.png" /></a>
+	</div>
+	<div>
+		<a id="go" rel="eBookend" name="signup" href="#signup"><img style="margin-left:5em; margin-bottom:2em" id="addButton" src="images/newbookend.png" /></a>
 	</div>
 	
 	<div id="shelf">
@@ -130,6 +133,29 @@
 				</div>
 			</div>
  	 	</form>
+ 	 	
+ 	 	<form action="" method="POST" id="signup">
+			<div id="signup-ct">
+				<div id="signup-header">
+					<h2>Create a new bookend</h2>
+					<p>DIY your own eBookend</p>
+					<a class="modal_close" href="#"></a>
+				</div>
+				<div>
+				  	<div class="txt-fld">
+				    	<label for="">Bookend Name</label>
+				    	<input id="bName" class="good_input" name="bName" type="text" />
+				  	</div>
+				  	<div class="btn-fld">
+				  		<button type="submit" id="create-bookend">Create it! &raquo;</button>
+					</div>
+					
+				</div>
+			</div>
+ 	 	</form>
+ 	 	
+ 	 	
+ 	 	
  	 	<div id="books">
 
  	 	</div>

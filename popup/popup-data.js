@@ -12,3 +12,13 @@ $(function () {
 		
 	});
  });
+ 
+ $(function () {  
+	$("#create-bookend").click(
+	function() {	
+		
+		$("#eBookend_overlay").fadeOut(200);
+		$("#signup").css({"display":"none"})
+		
+	});
+ });
