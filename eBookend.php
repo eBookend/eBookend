@@ -1,3 +1,30 @@
+<?php
+	include ("db.php");
+	
+	if(isset($_POST["bName"])){
+		
+		$bName = $db->quote($_POST["bName"]);
+		$bURL = $db->quote($_POST["bURL"]);
+		$bDescrip = $db->quote($_POST["bDescrip"]);
+		$bColor = $db->quote($_POST["bColor"]);
+		$bBookend = $db->quote($_POST["bBookend"]);
+		
+		$query_text_insert = "INSERT INTO book(Name, Description, Link, " . 
+		"BookendId, CoverColor) VALUES ($bName, $bDescrip, $bURL, $bBookend, $bColor)";
+		
+		$db -> query($query_text_insert);
+	}
+	
+	$query_books_select = "SELECT * FROM book";
+	
+	$rowsBook = $db -> query($query_books_select);
+	
+	$query_bookends_select = "SELECT * FROM bookend";
+	
+	$rowsBookend = $db -> query($query_bookends_select);	
+	
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +61,24 @@
 	</div>
 	
 	<div id="shelf">
+		 <?php
+ 	 		
+ 	 		foreach ($rowsBook as $rowBook) {
+				$bookId = $rowBook["BookId"];
+				$bookName = $rowBook["Name"];
+				$bookDescription = $rowBook["Description"];
+				$bookLink = $rowBook["Link"];
+				$bookBookendId = $rowBook["BookendId"];
+				$bookCoverColor = $rowBook["CoverColor"];
+				
+				print "<span class=$bookCoverColor ></span>";
+		 	 					
+			}
+ 	 		
+ 	 	?>
 	</div>
 	
-	<div id="signup">
+	<form action="" method="POST" id="signup">
 			<div id="signup-ct">
 				<div id="signup-header">
 					<h2>Create a new book</h2>
@@ -46,17 +88,17 @@
 				<div>
 				  	<div class="txt-fld">
 				    	<label for="">Book Name</label>
-				    	<input id="bName" class="good_input" name="" type="text" />
+				    	<input id="bName" class="good_input" name="bName" type="text" />
 				  	</div>
 				  
 				  	<div class="txt-fld">
 				    	<label for="">URL</label>
-				    	<input id="bURL" class="good_input" name="" type="text" />
+				    	<input id="bURL" class="good_input" name="bURL" type="text" />
 				  	</div>
 				  
 				  	<div class="txt-fld">
 				    	<label for="">Description</label>
-				    	<input id="bDescrip" name="" type="text" />
+				    	<input id="bDescrip" name="bDescrip" type="text" />
 				  	</div>
 				  
 				  	<div class="other-fld">
@@ -68,8 +110,16 @@
 			 		
 			 		<div class="other-fld">
 			 			<label for="">From </label>
-			 			<select id="bBookend">
-		  					<option value=0>Default Bookend</option>
+			 			<select id="bBookend" name="bBookend">
+			 				<?php
+			 					
+			 					foreach ($rowsBookend as $rowBookend) {
+									$bookendId = $rowBookend["BookendId"];
+									$bookendName = $rowBookend["Name"];
+									print "<option value='$bookendId'>$bookendName</span>";
+								}
+			 				
+			 				?>
 		  				</select>
 		  			</div>
 				  
@@ -79,9 +129,9 @@
 					
 				</div>
 			</div>
- 	 	</div>
+ 	 	</form>
  	 	<div id="books">
- 	 		
+
  	 	</div>
 </body>
 </html>
