@@ -226,7 +226,7 @@ button {
 	background-image: url("http://www.romideas.com/wp-content/uploads/2015/07/stylish-free-images-background.jpg");
 	width: 1000px;
 	height: 500px;
-	margin-top: 0xp;
+	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: auto;
 	margin-right: auto;
@@ -235,6 +235,7 @@ span{
 	display: inline-block;
 	height: 100px;
 	width: 100px;
+	text-align: center;
 }
 .red{
 	background: url(images/red.png);
@@ -250,4 +251,12 @@ span{
 	background: url(images/green.png);
 	background-repeat: no-repeat;
     background-size: contain;
+}
+
+.ebookend {
+	height: 100px;
+}
+
+.isDroppable {
+	display:inline-block;
 }

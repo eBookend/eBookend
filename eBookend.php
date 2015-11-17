@@ -52,7 +52,30 @@
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 
-	</script>	
+	</script>
+	<!--<script type="text/javascript" src="eBookend.js"></script>-->
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script>
+	  $(function() {
+	    $( "span" ).draggable({
+	    	containment: "#isDroppable"
+	    });
+	    $( ".ebookend" ).droppable({
+	      drop: function( event, ui ) {
+	      	//$( this ).find( ".placeholder" ).remove();
+        	$(ui.draggable).appendTo( this );
+        	$(ui.draggable).css("top","0");
+        	$(ui.draggable).css("left","0");
+        	$(ui.draggable).css("right","0");
+        	$(ui.draggable).css("bottom","0");
+	        $( this )
+	          .addClass( "ui-state-highlight" )
+	          .find( "span" );
+	            //.html( "Dropped! Dropped! Dropped! Dropped! Dropped! Dropped!Dropped!" );
+	      }
+	    });
+	  });
+	 </script>	
 </head>
 <body>
 	<h1>eBookend</h1>
@@ -64,21 +87,35 @@
 	</div>
 	
 	<div id="shelf">
-		 <?php
- 	 		
- 	 		foreach ($rowsBook as $rowBook) {
-				$bookId = $rowBook["BookId"];
-				$bookName = $rowBook["Name"];
-				$bookDescription = $rowBook["Description"];
-				$bookLink = $rowBook["Link"];
-				$bookBookendId = $rowBook["BookendId"];
-				$bookCoverColor = $rowBook["CoverColor"];
+		<div id="isDroppable">
+			<?php
+			foreach ($rowsBookend as $rowBookend) {
+				$bookendId = $rowBookend["BookendId"];
+				$bookendName = $rowBookend["Name"];
 				
-				print "<span class=$bookCoverColor ></span>";
-		 	 					
+				print "<div id='bookend$bookendId' class='ebookend'>";
+				
+				$rowsBook = $db -> query($query_books_select);
+
+	 	 		foreach ($rowsBook as $rowBook) {
+	 	 			$bookBookendId = $rowBook["BookendId"];
+					
+					if($bookendId == $bookBookendId){
+						$bookId = $rowBook["BookId"];
+						$bookName = $rowBook["Name"];
+						$bookDescription = $rowBook["Description"];
+						$bookLink = $rowBook["Link"];
+						
+						$bookCoverColor = $rowBook["CoverColor"];
+						print "<span id=id$bookId class=$bookCoverColor ></span>";				
+					}
+				}			
+				print "</div>";	
 			}
- 	 		
- 	 	?>
+
+ 	 		?>
+	 	 	</div>
+ 	 	</div>
 	</div>
 	
 	<form action="" method="POST" id="signup">
