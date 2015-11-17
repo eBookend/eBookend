@@ -236,6 +236,7 @@ span{
 	height: 100px;
 	width: 100px;
 	text-align: center;
+	vertical-align: middle;
 }
 .red{
 	background: url(images/red.png);
@@ -258,5 +259,9 @@ span{
 }
 
 .isDroppable {
-	display:inline-block;
+	display: inline-block;
+}
+#caralhada{
+	margin-top: 45px;
+	display: inline-block;
 }

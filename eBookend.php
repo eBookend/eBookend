@@ -41,7 +41,6 @@
 		});
 	</script>
 	<script type="text/javascript">
-
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-3318823-14']);
 	  _gaq.push(['_trackPageview']);
@@ -51,31 +50,9 @@
 	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-
 	</script>
-	<!--<script type="text/javascript" src="eBookend.js"></script>-->
+	<script type="text/javascript" src="eBookend.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script>
-	  $(function() {
-	    $( "span" ).draggable({
-	    	containment: "#isDroppable"
-	    });
-	    $( ".ebookend" ).droppable({
-	      drop: function( event, ui ) {
-	      	//$( this ).find( ".placeholder" ).remove();
-        	$(ui.draggable).appendTo( this );
-        	$(ui.draggable).css("top","0");
-        	$(ui.draggable).css("left","0");
-        	$(ui.draggable).css("right","0");
-        	$(ui.draggable).css("bottom","0");
-	        $( this )
-	          .addClass( "ui-state-highlight" )
-	          .find( "span" );
-	            //.html( "Dropped! Dropped! Dropped! Dropped! Dropped! Dropped!Dropped!" );
-	      }
-	    });
-	  });
-	 </script>	
 </head>
 <body>
 	<h1>eBookend</h1>
@@ -93,6 +70,8 @@
 				$bookendId = $rowBookend["BookendId"];
 				$bookendName = $rowBookend["Name"];
 				
+				$count = 0;
+				
 				print "<div id='bookend$bookendId' class='ebookend'>";
 				
 				$rowsBook = $db -> query($query_books_select);
@@ -105,9 +84,14 @@
 						$bookName = $rowBook["Name"];
 						$bookDescription = $rowBook["Description"];
 						$bookLink = $rowBook["Link"];
-						
 						$bookCoverColor = $rowBook["CoverColor"];
-						print "<span id=id$bookId class=$bookCoverColor ></span>";				
+						
+						if(($count % 10 == 0) && ($count != 0)){
+							print "</div><div id='bookend$bookendId' class='ebookend'>";	
+						}
+						
+						$count++;
+						print "<span id=id$bookId class=$bookCoverColor ><div id='caralhada'>$bookName</div></span>";				
 					}
 				}			
 				print "</div>";	
@@ -152,6 +136,7 @@
 			 			<label for="">From </label>
 			 			<select id="bBookend" name="bBookend">
 			 				<?php
+			 					$rowsBookend = $db -> query($query_bookends_select);
 			 					
 			 					foreach ($rowsBookend as $rowBookend) {
 									$bookendId = $rowBookend["BookendId"];
