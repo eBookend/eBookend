@@ -84,6 +84,15 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
     box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);     
 }
 
+#signup-bookend {
+    width: 404px;
+    padding-bottom: 2px;
+    display:none;
+    background: #FFF;
+    border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);     
+}
+
 #signup-header { 
 	background: url(popup/img/hd-bg.png); 
 	padding: 18px 18px 14px 18px; 
@@ -113,6 +122,14 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 }
 
 #signup .txt-fld { 
+	position: relative; 
+	width: 364px; 
+	padding: 14px 20px; 
+	border-bottom: 1px solid #EEE; 
+	text-align: right; 
+}
+
+#signup-bookend .txt-fld { 
 	position: relative; 
 	width: 364px; 
 	padding: 14px 20px; 
@@ -157,7 +174,23 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 	padding: 12px 20px 12px 130px; 
 }
 
+#signup-bookend .btn-fld { 
+	width: 254px; 
+	overflow: hidden; 
+	padding: 12px 20px 12px 130px; 
+}
+
 #signup .txt-fld label { 
+	display: block; 
+	float: left; 
+	width: 90px; 
+	padding-top: 8px; 
+	color: #222; 
+	font-size: 1.3em; 
+	text-align: left;  
+}
+
+#signup-bookend .txt-fld label { 
 	display: block; 
 	float: left; 
 	width: 90px; 
@@ -182,11 +215,36 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 	border-right: 1px solid #E7E6E6; 
 	border-bottom: 1px solid #E7E6E6; 
 }
+
+#signup-bookend .txt-fld input { 
+	width: 244px; 
+	padding: 8px; 
+	border-radius: 4px; 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+	font-size: 1.2em; color: #222; 
+	background: #F7F7F7; 
+	font-family: "Helvetica Neue"; 
+	outline: none; 
+	border-top: 1px solid #CCC; 
+	border-left: 1px solid #CCC; 
+	border-right: 1px solid #E7E6E6; 
+	border-bottom: 1px solid #E7E6E6; 
+}
+
 #signup .txt-fld input.good_input { 
 	background: #DEF5E1 url(popup/img/good.png) 236px center no-repeat; 
 }
 
+#signup-bookend .txt-fld input.good_input { 
+	background: #DEF5E1 url(popup/img/good.png) 236px center no-repeat; 
+}
+
 #signup .txt-fld input.error_input { 
+	background: #FDE0E0; 
+}
+
+#signup-bookend .txt-fld input.error_input { 
 	background: #FDE0E0; 
 }
 
