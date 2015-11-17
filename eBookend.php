@@ -15,6 +15,16 @@
 		$db -> query($query_text_insert);
 	}
 	
+	
+	if(isset($_POST["beName"])){
+		
+		$beName = $db->quote($_POST["beName"]);
+		
+		$query_new_bookend = "INSERT INTO bookend(Name) VALUES ($beName)";
+		
+		$db -> query($query_new_bookend);
+	}
+	
 	$query_books_select = "SELECT * FROM book";
 	
 	$rowsBook = $db -> query($query_books_select);
@@ -30,7 +40,9 @@
 <head>
 	<title>Welcome to eBookend - your online bookshelf</title>
 	<meta charset="utf-8" />
-	<link href="eBookend.css" type="text/css" rel="stylesheet" />
+	<link href="css/eBookend.css" type="text/css" rel="stylesheet" />
+	<link href="css/popover.css" type="text/css" rel="stylesheet" />
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<link rel="shortcut icon" href="http://downloadicons.net/sites/default/files/bookshelf-icon-65330.png"/>
 	<script type="text/javascript" src="popup/jquery.eBookend.min.js"></script>
@@ -56,12 +68,13 @@
 </head>
 <body>
 	<h1>eBookend</h1>
-	<div>
+	<div class="fixed">
 		<a id="go" rel="eBookend" name="signup" href="#signup"><img style="margin-left:5em; margin-bottom:2em" id="addButton" src="images/newbook.png" /></a>
-	</div>
-	<div>
+	<br />
 		<a id="go" rel="eBookend" name="signup-bookend" href="#signup-bookend"><img style="margin-left:5em; margin-bottom:2em" id="addButton" src="images/newbookend.png" /></a>
 	</div>
+	
+	<br />
 	
 	<div id="shelf">
 		<div id="isDroppable">
@@ -86,12 +99,27 @@
 						$bookLink = $rowBook["Link"];
 						$bookCoverColor = $rowBook["CoverColor"];
 						
-						if(($count % 10 == 0) && ($count != 0)){
+						if(($count % 9 == 0) && ($count != 0)){
 							print "</div><div id='bookend$bookendId' class='ebookend'>";	
 						}
 						
 						$count++;
-						print "<span id=id$bookId class=$bookCoverColor ><div id='caralhada'>$bookName</div></span>";				
+						?>
+							<div class="user">
+						<?php
+						//<span id=id$bookId class=$bookCoverColor" ondblclick="toURL();> failed
+						print "<span id=id$bookId class=$bookCoverColor">
+								<div id='bookName'>$bookName</div>
+							</span>";
+						?>
+							<ul>
+        						<li><a href="index.html">View details</a></li>
+        						<li><a id="go" rel="eBookend" name="edit" href="#edit">Edit</a></li>
+        						<li><a href="" onclick="if (confirm('Are you sure you want to delete this book?')) toDelete();">Delete</a></li>
+        						<li class="sep">Created: Nov 9, 2015</li>
+      						</ul>	
+      					</div>
+      					<?php		
 					}
 				}			
 				print "</div>";	
@@ -166,7 +194,7 @@
 				<div>
 				  	<div class="txt-fld">
 				    	<label for="">Bookend Name</label>
-				    	<input id="bName" class="good_input" name="bName" type="text" />
+				    	<input id="beName" class="good_input" name="beName" type="text" />
 				  	</div>
 				  	<div class="btn-fld">
 				  		<button type="submit" id="create-bookend">Create it! &raquo;</button>
@@ -176,7 +204,59 @@
 			</div>
  	 	</form>
  	 	
- 	 	
+ 	 	<form action="" method="POST" id="edit">
+			<div id="signup-ct">
+				<div id="signup-header">
+					<h2>Edit your book</h2>
+					<p>DIY your own eBookend</p>
+					<a class="modal_close" href="#"></a>
+				</div>
+				<div>
+				  	<div class="txt-fld">
+				    	<label for="">Book Name</label>
+				    	<input id="bName" class="good_input" name="bName" type="text" placeholder="Original bName"/>
+				  	</div>
+				  
+				  	<div class="txt-fld">
+				    	<label for="">URL</label>
+				    	<input id="bURL" class="good_input" name="bURL" type="text" placeholder="Original bURL"/>
+				  	</div>
+				  
+				  	<div class="txt-fld">
+				    	<label for="">Description</label>
+				    	<input id="bDescrip" name="bDescrip" type="text" placeholder="Original bDescrip"/>
+				  	</div>
+				  
+				  	<div class="other-fld">
+				  		<label for="">Cover Color</label>
+				  		<input type="radio" name="bColor" value="red" onclick=""/> Red
+						<input type="radio" name="bColor" value="yellow" onclick="" checked/> Yellow
+			 			<input type="radio" name="bColor" value="green" onclick=""/> Green
+			 		</div>
+			 		
+			 		<div class="other-fld">
+			 			<label for="">From </label>
+			 			<select id="bBookend" name="bBookend">
+			 				<?php
+			 					$rowsBookend = $db -> query($query_bookends_select);
+			 					
+			 					foreach ($rowsBookend as $rowBookend) {
+									$bookendId = $rowBookend["BookendId"];
+									$bookendName = $rowBookend["Name"];
+									print "<option value='$bookendId'>$bookendName</span>";
+								}
+			 				
+			 				?>
+		  				</select>
+		  			</div>
+				  
+				  	<div class="btn-fld">
+				  		<button type="submit" id="finish">Finish! &raquo;</button>
+					</div>
+					
+				</div>
+			</div>
+ 	 	</form>
  	 	
  	 	<div id="books">
 

@@ -40,7 +40,7 @@ h1 {
 
 body { 
 	font-size: 62.5%; font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", sans-serif;
-	background-image: url("ws_Wood_Background_1920x1080-2.jpg");
+	background-image: url("../ws_Wood_Background_1920x1080-2.jpg");
 }
 
 p { 
@@ -93,8 +93,17 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
     box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);     
 }
 
+#edit {
+    width: 404px;
+    padding-bottom: 2px;
+    display:none;
+    background: #FFF;
+    border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);     
+}
+
 #signup-header { 
-	background: url(popup/img/hd-bg.png); 
+	background: url(../popup/img/hd-bg.png); 
 	padding: 18px 18px 14px 18px; 
 	border-bottom: 1px solid #CCC; 
 	border-top-left-radius: 5px; 
@@ -121,7 +130,7 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 	text-shadow: none;
 }
 
-#signup .txt-fld { 
+.txt-fld { 
 	position: relative; 
 	width: 364px; 
 	padding: 14px 20px; 
@@ -129,22 +138,14 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 	text-align: right; 
 }
 
-#signup-bookend .txt-fld { 
-	position: relative; 
-	width: 364px; 
-	padding: 14px 20px; 
-	border-bottom: 1px solid #EEE; 
-	text-align: right; 
-}
-
-#signup .other-fld { 
+.other-fld { 
 	position: relative; 
 	width: 364px; 
 	padding: 14px 20px; 
 	border-bottom: 1px solid #EEE; 
 }
 
-#signup .other-fld label { 
+.other-fld label { 
 	display: block; 
 	float: left; 
 	width: 100px; 
@@ -154,7 +155,7 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 	text-align: left;  
 }
 
-#signup .other-fld input[type=radio] { 
+.other-fld input[type=radio] { 
 	display : inline-block;
   	margin : 0.25em 0.5em 0.25em 0.25em;
   	border : 0.0625em solid rgb(192,192,192);
@@ -168,19 +169,13 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
   	vertical-align : bottom;
 }
 
-#signup .btn-fld { 
+.btn-fld { 
 	width: 254px; 
 	overflow: hidden; 
 	padding: 12px 20px 12px 130px; 
 }
 
-#signup-bookend .btn-fld { 
-	width: 254px; 
-	overflow: hidden; 
-	padding: 12px 20px 12px 130px; 
-}
-
-#signup .txt-fld label { 
+.txt-fld label { 
 	display: block; 
 	float: left; 
 	width: 90px; 
@@ -190,17 +185,7 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 	text-align: left;  
 }
 
-#signup-bookend .txt-fld label { 
-	display: block; 
-	float: left; 
-	width: 90px; 
-	padding-top: 8px; 
-	color: #222; 
-	font-size: 1.3em; 
-	text-align: left;  
-}
-
-#signup .txt-fld input { 
+.txt-fld input { 
 	width: 244px; 
 	padding: 8px; 
 	border-radius: 4px; 
@@ -216,35 +201,11 @@ a:hover, a:active { color: #D0E4EF; text-decoration: none; }
 	border-bottom: 1px solid #E7E6E6; 
 }
 
-#signup-bookend .txt-fld input { 
-	width: 244px; 
-	padding: 8px; 
-	border-radius: 4px; 
-	-moz-border-radius: 4px; 
-	-webkit-border-radius: 4px; 
-	font-size: 1.2em; color: #222; 
-	background: #F7F7F7; 
-	font-family: "Helvetica Neue"; 
-	outline: none; 
-	border-top: 1px solid #CCC; 
-	border-left: 1px solid #CCC; 
-	border-right: 1px solid #E7E6E6; 
-	border-bottom: 1px solid #E7E6E6; 
+.txt-fld input.good_input { 
+	background: #DEF5E1 url(../popup/img/good.png) 236px center no-repeat; 
 }
 
-#signup .txt-fld input.good_input { 
-	background: #DEF5E1 url(popup/img/good.png) 236px center no-repeat; 
-}
-
-#signup-bookend .txt-fld input.good_input { 
-	background: #DEF5E1 url(popup/img/good.png) 236px center no-repeat; 
-}
-
-#signup .txt-fld input.error_input { 
-	background: #FDE0E0; 
-}
-
-#signup-bookend .txt-fld input.error_input { 
+.txt-fld input.error_input { 
 	background: #FDE0E0; 
 }
 
@@ -272,9 +233,10 @@ button {
 	display: block; 
 	width: 14px; 
 	height: 14px; 
-	background: url(popup/img/modal_close.png); 
+	background: url(../popup/img/modal_close.png); 
 	z-index: 2; 
 }
+
 #addButton {
 	width: 50px;
 	height: 50px;
@@ -297,17 +259,17 @@ span{
 	vertical-align: middle;
 }
 .red{
-	background: url(images/red.png);
+	background: url(../images/red.png);
 	background-repeat: no-repeat;
     background-size: contain;
 }
 .yellow{
-	background: url(images/yellow.png);
+	background: url(../images/yellow.png);
 	background-repeat: no-repeat;
     background-size: contain;
     }
 .green{
-	background: url(images/green.png);
+	background: url(../images/green.png);
 	background-repeat: no-repeat;
     background-size: contain;
 }
@@ -319,7 +281,18 @@ span{
 .isDroppable {
 	display: inline-block;
 }
-#caralhada{
-	margin-top: 45px;
+
+#bookName{
+	margin-top: 30px;
+	margin-left: 8px;
+	width: 30px;
+	font-family: 'Open Sans', sans-serif; font-size: 12px; 
+	font-weight: bold;
 	display: inline-block;
+}
+
+.fixed {
+    position: fixed;
+    top: 10;
+    left: 0;
 }
