@@ -80,15 +80,22 @@ table {
  * Licensed under the MIT License:
  * http://www.opensource.org/licenses/mit-license.php
  */
+<<<<<<< HEAD
  
 /*
+=======
+
+>>>>>>> origin/master
 .container {
   margin: 150px auto 50px;
   width: 640px;
   text-align: center;
 }
+<<<<<<< HEAD
 */
 
+=======
+>>>>>>> origin/master
 .container .user {
   text-align: left;
 }
@@ -96,9 +103,13 @@ table {
 .user {
   position: relative;
   height: 32px;
+<<<<<<< HEAD
 /*  
   padding: 8px 12px 8px 8px;
 */  
+=======
+  padding: 8px 12px 8px 8px;
+>>>>>>> origin/master
   display: inline-block;
   vertical-align: baseline;
   zoom: 1;
