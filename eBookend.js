@@ -13,11 +13,11 @@ $(function () {
 //					dataType: String,
 					success: function(result) { 
 			            bookData = result.split("|");
-			            $("#editName").attr("placeholder", bookData[0]);
-			            $("#editDescrip").attr("placeholder", bookData[1]);
-			            $("#editURL").attr("placeholder", bookData[2]);
-			          //  $("#editName").attr("placeholder", bookData[3]);
-			          //  $("#editName").attr("placeholder", bookData[4]);
+			            $("#editName").attr("value", bookData[0]);
+			            $("#editDescrip").attr("value", bookData[1]);
+			            $("#editURL").attr("value", bookData[2]);
+			          //  $("#editBookend").attr("value", bookData[3]);
+			          //  $("#editColor").attr("value", bookData[4]);
 			        }
 			  });
 			  
