@@ -85,6 +85,17 @@
 				$count = 0;
 				
 				print "<div id='bookend$bookendId' class='ebookend'>";
+				?>
+				<div class="user" id="ebookend-name">
+					<?php
+					print "<p>$bookendName</p>";
+					?>
+					<ul>
+        				<li><a id="go" rel="eBookend" name="edit-bookend" href="#edit-bookend">Edit</a></li>
+        				<li><a href="" onclick="if (confirm('Are you sure you want to delete this book?')) toDelete();">Delete</a></li>
+      				</ul>	
+      			</div>
+      			<?php
 				
 				$rowsBook = $db -> query($query_books_select);
 
@@ -112,7 +123,7 @@
 							";
 						?>
 								<ul>
-	        						<li><a href="index.html">View details</a></li>
+	        						<li><a id="go" rel="eBookend" name="detail" href="#detail">View details</a></li>
 	        						<li><a id="goEdit<?=$bookId?>" rel="eBookend" name="edit" href="#edit" class="goEdit">Edit</a></li>
 	        						<li><a href="" onclick="if (confirm('Are you sure you want to delete this book?')) toDelete();">Delete</a></li>
 	      						</ul>
@@ -255,6 +266,43 @@
 					
 				</div>
 			</div>
+ 	 	</form>
+ 	 	
+ 	 	 	 	<form action="" method="POST" id="edit-bookend">
+			<div id="signup-ct">
+				<div id="signup-header">
+					<h2>Create a new bookend</h2>
+					<p>DIY your own eBookend</p>
+					<a class="modal_close" href="#"></a>
+				</div>
+				<div>
+				  	<div class="txt-fld">
+				    	<label for="">Bookend Name</label>
+				    	<input id="edit-beName" class="good_input" name="edit-beName" type="text" placeholder="Original bookend name" />
+				  	</div>
+				  	<div class="btn-fld">
+				  		<button type="submit" id="finish-bookend">Finish! &raquo;</button>
+					</div>
+					
+				</div>
+			</div>
+ 	 	</form>
+ 	 	
+ 	 	<form action="" method="POST" id="detail">
+ 	 		<section class="notepad">
+    			<div class="notepad-heading">
+    			</div>
+    			<blockquote>
+    				book name <br />
+      				in bookend name
+    			</blockquote>
+    			<blockquote>
+      				URL : www.google.com
+    			</blockquote>
+   				<blockquote>
+      				here is description
+    			</blockquote>
+  			</section>
  	 	</form>
  	 	
  	 	<div id="books">
