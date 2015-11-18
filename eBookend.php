@@ -108,7 +108,7 @@
 							<div class="user">
 						<?php
 						//<span id=id$bookId class=$bookCoverColor" ondblclick="toURL();> failed
-						print "<span id=id$bookId class=$bookCoverColor">
+						print "<span id=id$bookId class=$bookCoverColor>
 								<div id='bookName'>$bookName</div>
 							</span>";
 						?>
