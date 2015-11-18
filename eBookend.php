@@ -15,6 +15,20 @@
 		$db -> query($query_text_insert);
 	}
 	
+	if(isset($_POST["editBookId"])){
+		$editBookId = $db->quote($_POST["editBookId"]);
+		$editName = $db->quote($_POST["editName"]);
+		$editURL = $db->quote($_POST["editURL"]);
+		$editDescrip = $db->quote($_POST["editDescrip"]);
+		$editColor = $db->quote($_POST["editColor"]);
+		$editBookend = $db->quote($_POST["editBookend"]);
+		
+		$query_text_edit_book = "UPDATE book SET Name=$editName, Description=$editDescrip, Link=$editURL, " . 
+		"BookendId=$editBookend, CoverColor=$editColor WHERE BookId=$editBookId";
+		
+		$db -> query($query_text_edit_book);
+	}
+	
 	if(isset($_POST["beName"])){
 		
 		$beName = $db->quote($_POST["beName"]);
@@ -117,15 +131,15 @@
 						
 						print "<span class='user' id='id$bookId'>";
 						
-						//<span id=id$bookId class=$bookCoverColor" ondblclick="toURL();> failed
+						
 						print "<div  class='$bookCoverColor bookRafa' >
 								<div id='bookName'>$bookName</div>
 							";
 						?>
 								<ul>
-	        						<li><a id="go" rel="eBookend" name="detail" href="#detail">View details</a></li>
+	        						<li><a id="goEdit<?=$bookId?>" rel="eBookend" name="detail" href="#detail" class="goViewDetail">View details</a></li>
 	        						<li><a id="goEdit<?=$bookId?>" rel="eBookend" name="edit" href="#edit" class="goEdit">Edit</a></li>
-	        						<li><a href="" onclick="if (confirm('Are you sure you want to delete this book?')) toDelete();">Delete</a></li>
+	        						<li><a id="goEdit<?=$bookId?>" href="" class="goDelete">Delete</a></li>
 	      						</ul>
       						</div>	
       					</span>
@@ -259,6 +273,11 @@
 			 				?>
 		  				</select>
 		  			</div>
+		  			
+		  			<div class="hidden">
+				    	<label for="">EditBookId</label>
+				    	<input id="editBookId" name="editBookId" type="text" placeholder=""/>
+				  	</div>
 				  
 				  	<div class="btn-fld">
 				  		<button type="submit" id="finish">Finish! &raquo;</button>
@@ -288,19 +307,20 @@
 			</div>
  	 	</form>
  	 	
- 	 	<form action="" method="POST" id="detail">
+ 	 	<form action="" id="detail">
  	 		<section class="notepad">
     			<div class="notepad-heading">
     			</div>
     			<blockquote>
-    				book name <br />
-      				in bookend name
+    				<h3>Book name: <h4 id="viewBookName"></h4></h3>
+      				
     			</blockquote>
     			<blockquote>
-      				URL : www.google.com
+      				<h3>URL: </h3><h4 id="viewBookURL"></h4>
     			</blockquote>
    				<blockquote>
-      				here is description
+      				<h3>Description: </h3>
+      				<h4 id="viewBookDescrip"></h4>
     			</blockquote>
   			</section>
  	 	</form>

@@ -16,8 +16,10 @@
 			$string .= $result["Description"] . "|";
 			$string .= $result["Link"] . "|";
 			$string .= $result["BookendId"] . "|";
-			$string .= $result["CoverColor"];
+			$string .= $result["CoverColor"] . "|";
 		}
+		
+		$string .= str_replace("goEdit", "" , $_POST["bookGetId"]);
 		
 		echo "$string";
 	}

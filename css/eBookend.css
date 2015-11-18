@@ -330,3 +330,7 @@ span{
     top: 10;
     left: 0;
 }
+
+.hidden{
+	display: none;
+}

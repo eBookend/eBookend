@@ -1,3 +1,3 @@
 <?php
-	$db = new PDO("mysql:dbname=ebookend;host=localhost", "root", "");
+	$db = new PDO("mysql:dbname=defaritl;host=localhost", "defaritl", "abcde");
 ?>
