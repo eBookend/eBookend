@@ -290,8 +290,26 @@ span{
     background-size: contain;
 }
 
+.bookRafa{
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	vertical-align: middle;
+}
+
 .ebookend {
 	height: 100px;
+}
+
+#ebookend-name {
+	 min-width: 60px;
+	diplay: inline;
+	float: right;
+}
+
+#ebookend-name p{
+	text-align: right;
 }
 
 .isDroppable {
