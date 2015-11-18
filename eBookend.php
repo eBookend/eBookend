@@ -113,7 +113,7 @@
 							</span>";
 						?>
 							<ul>
-        						<li><a href="index.html">View details</a></li>
+        						<li><a id="go" rel="eBookend" name="detail" href="#detail">View details</a></li>
         						<li><a id="go" rel="eBookend" name="edit" href="#edit">Edit</a></li>
         						<li><a href="" onclick="if (confirm('Are you sure you want to delete this book?')) toDelete();">Delete</a></li>
         						<li class="sep">Created: Nov 9, 2015</li>
@@ -256,6 +256,23 @@
 					
 				</div>
 			</div>
+ 	 	</form>
+ 	 	
+ 	 	<form action="" method="POST" id="detail">
+ 	 		<section class="notepad">
+    			<div class="notepad-heading">
+    			</div>
+    			<blockquote>
+    				book name <br />
+      				in bookend name
+    			</blockquote>
+    			<blockquote>
+      				URL : www.google.com
+    			</blockquote>
+   				<blockquote>
+      				here is description
+    			</blockquote>
+  			</section>
  	 	</form>
  	 	
  	 	<div id="books">
