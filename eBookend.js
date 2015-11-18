@@ -1,7 +1,30 @@
 $(function () {
 	  $(function() {
-		  $("span").click(function(){
-			  console.log("cliquei");
+		  $(".goEdit").click(function(){
+			  
+			var bookGetId = $(this).attr("id");
+			var dataString = 'bookGetId=' + bookGetId;
+			var bookData = [];
+			  //colocar ajax
+			  $.ajax({
+					type: "POST",
+					url: "bookGetData.php",
+					data: dataString,
+//					dataType: String,
+					success: function(result) { 
+			            bookData = result.split("|");
+			            $("#editName").attr("placeholder", bookData[0]);
+			            $("#editDescrip").attr("placeholder", bookData[1]);
+			            $("#editURL").attr("placeholder", bookData[2]);
+			          //  $("#editName").attr("placeholder", bookData[3]);
+			          //  $("#editName").attr("placeholder", bookData[4]);
+			        }
+			  });
+			  
+			  
+			  //retornar
+			  	
+			  	
 		  });
 		    $( "span" ).draggable({
 		    	containment: "#isDroppable"
@@ -32,3 +55,4 @@ $(function () {
 		    });
 		  });
 });
+

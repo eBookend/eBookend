@@ -15,7 +15,6 @@
 		$db -> query($query_text_insert);
 	}
 	
-	
 	if(isset($_POST["beName"])){
 		
 		$beName = $db->quote($_POST["beName"]);
@@ -104,21 +103,21 @@
 						}
 						
 						$count++;
-						?>
-							<div class="user">
-						<?php
+						
+						print "<span class='user' id='id$bookId'>";
+						
 						//<span id=id$bookId class=$bookCoverColor" ondblclick="toURL();> failed
-						print "<span id=id$bookId class=$bookCoverColor>
+						print "<div  class='$bookCoverColor bookRafa' >
 								<div id='bookName'>$bookName</div>
-							</span>";
+							";
 						?>
-							<ul>
-        						<li><a id="go" rel="eBookend" name="detail" href="#detail">View details</a></li>
-        						<li><a id="go" rel="eBookend" name="edit" href="#edit">Edit</a></li>
-        						<li><a href="" onclick="if (confirm('Are you sure you want to delete this book?')) toDelete();">Delete</a></li>
-        						<li class="sep">Created: Nov 9, 2015</li>
-      						</ul>	
-      					</div>
+								<ul>
+	        						<li><a href="index.html">View details</a></li>
+	        						<li><a id="goEdit<?=$bookId?>" rel="eBookend" name="edit" href="#edit" class="goEdit">Edit</a></li>
+	        						<li><a href="" onclick="if (confirm('Are you sure you want to delete this book?')) toDelete();">Delete</a></li>
+	      						</ul>
+      						</div>	
+      					</span>
       					<?php		
 					}
 				}			
@@ -214,29 +213,29 @@
 				<div>
 				  	<div class="txt-fld">
 				    	<label for="">Book Name</label>
-				    	<input id="bName" class="good_input" name="bName" type="text" placeholder="Original bName"/>
+				    	<input id="editName" class="good_input" name="editName" type="text" placeholder=""/>
 				  	</div>
 				  
 				  	<div class="txt-fld">
 				    	<label for="">URL</label>
-				    	<input id="bURL" class="good_input" name="bURL" type="text" placeholder="Original bURL"/>
+				    	<input id="editURL" class="good_input" name="editURL" type="text" placeholder=""/>
 				  	</div>
 				  
 				  	<div class="txt-fld">
 				    	<label for="">Description</label>
-				    	<input id="bDescrip" name="bDescrip" type="text" placeholder="Original bDescrip"/>
+				    	<input id="editDescrip" name="editDescrip" type="text" placeholder=""/>
 				  	</div>
 				  
 				  	<div class="other-fld">
 				  		<label for="">Cover Color</label>
-				  		<input type="radio" name="bColor" value="red" onclick=""/> Red
-						<input type="radio" name="bColor" value="yellow" onclick="" checked/> Yellow
-			 			<input type="radio" name="bColor" value="green" onclick=""/> Green
+				  		<input type="radio" name="editColor" value="red" onclick=""/> Red
+						<input type="radio" name="editColor" value="yellow" onclick="" checked/> Yellow
+			 			<input type="radio" name="editColor" value="green" onclick=""/> Green
 			 		</div>
 			 		
 			 		<div class="other-fld">
 			 			<label for="">From </label>
-			 			<select id="bBookend" name="bBookend">
+			 			<select id="editBookend" name="editBookend">
 			 				<?php
 			 					$rowsBookend = $db -> query($query_bookends_select);
 			 					
@@ -256,23 +255,6 @@
 					
 				</div>
 			</div>
- 	 	</form>
- 	 	
- 	 	<form action="" method="POST" id="detail">
- 	 		<section class="notepad">
-    			<div class="notepad-heading">
-    			</div>
-    			<blockquote>
-    				book name <br />
-      				in bookend name
-    			</blockquote>
-    			<blockquote>
-      				URL : www.google.com
-    			</blockquote>
-   				<blockquote>
-      				here is description
-    			</blockquote>
-  			</section>
  	 	</form>
  	 	
  	 	<div id="books">
